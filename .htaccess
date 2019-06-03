@@ -1,0 +1,11 @@
+ErrorDocument 404 "<h3>404 Page Not Found!</h3>"
+
+Header set Strict-Transport-Security "max-age=31536000" env=HTTPS
+Header always unset X-Frame-Options
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Content-Type-Options "nosniff"
+Header always set Feature-Policy "microphone 'none'; payment 'none'; sync-xhr 'self' [https://meu.dominio.com]"
+Header set Content-Security-Policy: ""
+Header always append X-Frame-Options SAMEORIGIN
+Header set Referrer-Policy "same-origin"
+Header edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
